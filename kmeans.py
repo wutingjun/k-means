@@ -48,7 +48,9 @@ def kmeans(dataSet, k):			#dataSet=[[1 2][3 4][5 6]...]
 
         # step 4:更新簇中心
         for j in range(k):
-            pointsInCluster = dataSet[nonzero(clusterAssment[:, 0].A == j)[0]]
+            pointsInCluster = dataSet[nonzero(clusterAssment[:, 0].A == j)[0]]  #clusterAssment[:,0].A将clusterAssment[:,0]矩阵转换成数组
+            # nonzero(a)函数将对矩阵a的所有非零元素,分别从两个维度(行和列)看,非0元素对应的行坐标放在一个列表中,对应的列坐标放在一个列表中,然后一起返回!
+            # clusterAssment[:, 0].A ==j将对应的元素编程True和False了,所以nonzero(clusterAssment[:, 0].A == j)[0]最终将该簇的点
             centroids[j, :] = mean(pointsInCluster, axis = 0) #选项axis=0表示沿矩阵的列方向进行均值计算
 
     print 'Congratulations, cluster complete!'
