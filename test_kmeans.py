@@ -5,7 +5,7 @@ import kmeans
 print "step 1: load data..."
 dataSet = []
 fileIn = open('testSet.txt')
-for line in fileIn.readlines():
+for line in fileIn:
 	lineArr = line.strip().split('\t')
 	dataSet.append([float(lineArr[0]), float(lineArr[1])])
 dataSet = mat(dataSet)
